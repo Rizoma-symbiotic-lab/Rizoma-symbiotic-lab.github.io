@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'">
+<title>Rizoma Symbiotic Lab — Symbiotic Design</title>
+<meta name="description" content="Rizoma Symbiotic Lab — лаборатория симбиотического дизайна. Ставка: AGT (Agency-Guarded Technology). Метрики: SPS. Протоколы: CAPA, PI, Re-Lex, Gladiator, DIP.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232E5E4E'/><text x='16' y='22' font-family='system-ui' font-size='16' font-weight='800' fill='%23F7F5F0' text-anchor='middle'>R</text></svg>">
+<script>(function(){try{var t=localStorage.getItem('ag-theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<style>
+:root{--hdr-h:64px;--bg:#F7F5F0;--surface:#FFF;--surface-2:#FBFAF6;--ink:#22201C;--ink-2:#5C574D;--ink-3:#7A7466;--line:#E5E1D6;--line-strong:#D2CCBE;--accent:#2E5E4E;--accent-ink:#24503F;--accent-soft:rgba(46,94,78,.07);--accent-line:rgba(46,94,78,.28);--clay:#B4633F;--clay-soft:rgba(180,99,63,.07);--clay-line:rgba(180,99,63,.3);--gold:#96772B;--gold-soft:rgba(150,119,43,.1);--hero-bg:#F1EDE4;--hero-a:#2E5E4E;--hero-b:#C2734B;--hero-c:#DFD8C9;--shadow-sm:0 1px 2px rgba(35,32,26,.05);--shadow-md:0 6px 20px rgba(35,32,26,.07);--shadow-lg:0 16px 44px rgba(35,32,26,.12);--r-md:12px;--r-lg:16px;--r-xl:22px}
+[data-theme="dark"]{--bg:#171613;--surface:#1F1E19;--surface-2:#24221C;--ink:#EDE9DF;--ink-2:#A8A191;--ink-3:#948C79;--line:#2D2B24;--line-strong:#3D3A30;--accent:#84BAA0;--accent-ink:#9BCBB3;--accent-soft:rgba(132,186,160,.09);--accent-line:rgba(132,186,160,.3);--clay:#D08A63;--clay-soft:rgba(208,138,99,.09);--clay-line:rgba(208,138,99,.32);--gold:#CBA64E;--gold-soft:rgba(203,166,78,.1);--hero-bg:#191814;--hero-a:#84BAA0;--hero-b:#D08A63;--hero-c:#262420;--shadow-sm:0 1px 2px rgba(0,0,0,.35);--shadow-md:0 6px 20px rgba(0,0,0,.4);--shadow-lg:0 16px 44px rgba(0,0,0,.5)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:15px;line-height:1.7;color:var(--ink);background:var(--bg);transition:background-color .3s,color .3s;-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent-soft)}
+body[data-lang="ru"] .en{display:none!important}body[data-lang="en"] .ru{display:none!important}
+body[data-lang="ru"] .pt{display:none!important}body[data-lang="en"] .pt{display:none!important}
+body[data-lang="pt"] .ru{display:none!important}body[data-lang="pt"] .en{display:none!important}
+/* ШАПКА */
+.site-header{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.header-content{max-width:1060px;margin:0 auto;padding:0 20px;height:var(--hdr-h);display:flex;align-items:center;gap:12px}
+.brand-mark{width:34px;height:34px;border-radius:9px;background:var(--accent);color:var(--bg);font-weight:800;font-size:15px;display:inline-flex;align-items:center;justify-content:center;border:none;cursor:pointer;flex:none;transition:transform .2s}
+.brand-mark:hover{transform:scale(1.06)}
+.header-title{font-size:15px;font-weight:800;letter-spacing:.12em;line-height:1.2}
+.header-subtitle{font-size:11px;color:var(--ink-3);display:flex;align-items:center;gap:5px;margin-top:1px}
+.sc-flag{width:14px;height:10px;border-radius:2px;flex:none;box-shadow:0 0 0 1px var(--line-strong)}
+.header-spacer{flex:1}
+.lang-switch{display:inline-flex;background:var(--surface);border:1px solid var(--line-strong);border-radius:999px;padding:2px;gap:2px}
+.lang-btn{border:none;background:transparent;color:var(--ink-2);font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all .2s}
+.lang-btn.active{background:var(--accent);color:var(--bg)}
+.theme-toggle{width:34px;height:34px;border-radius:50%;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink-2);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:all .2s;flex:none}
+.theme-toggle:hover{border-color:var(--accent-line);color:var(--accent)}
+.theme-toggle svg{width:16px;height:16px}
+[data-theme="light"] .theme-icon-sun{display:none}[data-theme="dark"] .theme-icon-moon{display:none}
+/* HERO */
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+.hero-figure{position:relative;margin:26px 0 26px;border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm);background:var(--hero-bg)}
+.hero-svg{display:block;width:100%;height:auto}
+.hbg{fill:var(--hero-bg)}.ha1{fill:var(--hero-a);opacity:.92}.ha2{fill:var(--hero-c)}.ha3{fill:var(--hero-b);opacity:.85}
+.hc1{fill:var(--hero-b);opacity:.9}.hc3{fill:var(--hero-b);opacity:.7}
+.hdash{stroke:var(--hero-a);stroke-width:3;fill:none;opacity:.45}
+.hero-flash{position:absolute;left:50%;top:50%;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.9),rgba(255,255,255,0) 60%);opacity:0;pointer-events:none;animation:heroFlash 8.25s ease-out 1.8s infinite}
+.hero-word{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;pointer-events:none;background:radial-gradient(ellipse 46% 60% at 50% 50%,var(--hero-bg) 0%,transparent 70%)}
+.hero-word .line{display:flex;align-items:baseline;justify-content:center}
+.hero-word .lt{display:inline-block;font-weight:800;line-height:1.02;letter-spacing:.04em;font-size:clamp(26px,5.6vw,72px);opacity:0;animation:letterCycle 7.2s cubic-bezier(.22,.9,.24,1) infinite;animation-delay:var(--d);will-change:transform,opacity,filter}
+.hero-word .line1 .lt{color:var(--accent-ink);-webkit-text-stroke:.5px var(--clay);paint-order:stroke fill}
+.hero-word .line2 .lt{color:transparent;-webkit-text-stroke:.7px var(--clay);font-weight:400;animation-name:letterCycleOutline}
+.hero-word .sp{width:.35em}
+@keyframes letterCycle{0%{opacity:0;transform:scale(.45) translateY(12px);filter:blur(10px)}14%{opacity:.22;transform:scale(.66) translateY(7px);filter:blur(6px)}30%{opacity:.55;transform:scale(.88) translateY(2px);filter:blur(2.5px)}44%{opacity:.85;transform:scale(1) translateY(0);filter:blur(0)}60%{opacity:.8;transform:scale(1.12);filter:blur(0);text-shadow:0 1px 0 rgba(0,0,0,.18),0 0 22px rgba(255,255,255,.30)}82%{opacity:0;transform:scale(2.6) translateY(-10px);filter:blur(12px)}100%{opacity:0;transform:scale(2.6) translateY(-10px);filter:blur(12px)}}
+@keyframes letterCycleOutline{0%{opacity:0;transform:scale(.45) translateY(12px);filter:blur(10px)}14%{opacity:.25;transform:scale(.66) translateY(7px);filter:blur(6px)}30%{opacity:.6;transform:scale(.88) translateY(2px);filter:blur(2.5px)}44%{opacity:.9;transform:scale(1) translateY(0);filter:blur(0)}60%{opacity:.85;transform:scale(1.12);filter:blur(0)}76%{opacity:0;transform:scale(1.45) translateY(-6px);filter:blur(7px)}100%{opacity:0;transform:scale(1.45) translateY(-6px);filter:blur(7px)}}
+@keyframes heroFlash{0%{opacity:0;transform:scale(.6)}35%{opacity:.4}100%{opacity:0;transform:scale(1.6)}}
+/* Анимация двигателя */
+.hero-svg .orb,.hero-svg .ripple,.hero-svg .spark{transform-box:fill-box;transform-origin:center}
+.hero-svg .arch{transform-box:fill-box;transform-origin:50% 100%}
+.hero-svg .rod{transform-box:fill-box;transform-origin:50% 100%}
+@keyframes pistonCrank{0%,100%{transform:translateY(0)}25%{transform:translateY(9px)}50%{transform:translateY(16px)}75%{transform:translateY(9px)}}
+.piston .arch{animation:pistonCrank 4.2s cubic-bezier(.37,0,.63,1) infinite}
+.piston.p2 .arch{animation-delay:-1.4s}.piston.p3 .arch{animation-delay:-2.8s}
+@keyframes hoopSpin{to{transform:rotate(360deg)}}
+@keyframes hoopBob{0%,100%{transform:translateY(0)}50%{transform:translateY(16px)}}
+.hoop-ring{fill:none;stroke:var(--hero-a);stroke-width:2.4;opacity:.8}
+.hoop-ring.inner{stroke:var(--hero-b);stroke-width:1.6;opacity:.6}
+.hoop{transform-box:fill-box;transform-origin:center;animation:hoopBob 4.2s cubic-bezier(.37,0,.63,1) infinite}
+.hoop.h2{animation-delay:-1.4s}.hoop.h3{animation-delay:-2.8s}
+.hoop .hoop-ring{stroke-dasharray:10 7;transform-box:fill-box;transform-origin:center;animation:hoopSpin 4.2s linear infinite}
+.hoop.h2 .hoop-ring{animation-direction:reverse}
+.hoop .hoop-ring.inner{animation-duration:2.1s}
+@keyframes rodS1{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.936)}}
+@keyframes rodS2{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.949)}}
+@keyframes rodS3{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.912)}}
+.rod{stroke:var(--hero-a);stroke-width:3;stroke-dasharray:3 9;opacity:.45;animation:rodFlow 1.05s linear infinite}
+.piston.p1 .rod{animation:rodFlow 1.05s linear infinite, rodS1 4.2s cubic-bezier(.45,0,.55,1) infinite}
+.piston.p2 .rod{animation:rodFlow 1.05s linear infinite, rodS2 4.2s cubic-bezier(.45,0,.55,1) -1.4s infinite}
+.piston.p3 .rod{animation:rodFlow 1.05s linear infinite, rodS3 4.2s cubic-bezier(.45,0,.55,1) -2.8s infinite}
+@keyframes rodFlow{to{stroke-dashoffset:-12}}
+@keyframes crank{from{transform:rotate(90deg)}to{transform:rotate(450deg)}}
+.flywheel{transform-box:view-box;transform-origin:705px 340px;animation:crank 4.2s linear infinite}
+.fw-ring{fill:none;stroke:var(--hero-a);stroke-width:6;stroke-dasharray:14 10;opacity:.85}
+.fw-pin{fill:var(--hero-b)}
+@keyframes pulseCore{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.fw-hub{transform-box:view-box;transform-origin:705px 340px;fill:var(--hero-a);animation:pulseCore 4.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.88}50%{transform:scale(1.10);opacity:1}}
+.orb{animation:pulse 3.2s ease-in-out infinite}
+.orb.d1{animation-delay:-.8s}.orb.d2{animation-delay:-1.6s}.orb.d3{animation-delay:-2.4s}
+.ripple{fill:none;stroke:var(--hero-b);stroke-width:2;opacity:0;animation:rippleGrow 5.5s ease-out infinite}
+.ripple.r2{animation-delay:2.75s}
+@keyframes rippleGrow{0%{transform:scale(.72);opacity:.5}70%{opacity:.12}100%{transform:scale(1.5);opacity:0}}
+.orbit-ring{fill:none;stroke:var(--hero-a);stroke-width:1.5;stroke-dasharray:1 7;opacity:.4}
+@keyframes orbitSpin{to{transform:rotate(360deg)}}
+.orbit{transform-box:view-box;transform-origin:1250px 118px;animation:orbitSpin 14s linear infinite}
+.orbit.o2{animation-duration:20s;animation-direction:reverse}
+.orb-mini{fill:var(--hero-a)}.orb-mini.b{fill:var(--hero-b)}
+@keyframes roadFlow{to{stroke-dashoffset:-36}}
+.road{animation:roadFlow 2.6s linear infinite}
+.hero-svg .spark{display:none}
+@supports (offset-path:path('M0 0 h1')){
+.hero-svg .spark{display:block;fill:var(--hero-b);offset-path:path('M110 382 h1380');offset-rotate:0deg;animation:travel 6s linear infinite}
+.hero-svg .spark.s2{animation-delay:-2s;fill:var(--hero-a)}
+.hero-svg .spark.s3{animation-delay:-4s}
+@keyframes travel{0%{offset-distance:0%;opacity:0}6%{opacity:1}94%{opacity:1}100%{offset-distance:100%;opacity:0}}
+}
+@media (prefers-reduced-motion:reduce){.hero-svg *,.hero-word .lt{animation:none!important;opacity:.8;transform:none;filter:none}}
+/* КОНТЕНТ */
+.section{margin:0 0 44px}
+.section-title{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-bottom:14px;display:flex;align-items:baseline;gap:10px}
+.section-number{font-size:12px;font-weight:700;color:var(--clay);letter-spacing:.08em}
+.lead{font-size:16.5px;line-height:1.75;color:var(--ink);margin-bottom:14px;max-width:760px}
+.lead em{font-style:normal;color:var(--accent-ink);font-weight:700}
+.lead strong{color:var(--accent-ink)}
+.motto-row{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.meta-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;font-size:11.5px;font-weight:600;background:var(--surface);color:var(--ink-2);border-radius:999px;border:1px solid var(--line-strong)}
+.meta-chip.accent{background:var(--accent-soft);border-color:var(--accent-line);color:var(--accent-ink)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:760px){.duo{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;box-shadow:var(--shadow-sm);transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--accent-line)}
+.card-key{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--clay);margin-bottom:6px}
+.card-title{font-size:19px;font-weight:800;letter-spacing:-.01em;margin-bottom:8px}
+.card-title .exp{font-weight:500;color:var(--ink-2);font-size:14px}
+.card p{font-size:14px;color:var(--ink-2);line-height:1.65}
+.proto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.proto{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:16px;transition:border-color .2s,transform .2s}
+.proto:hover{border-color:var(--clay-line);transform:translateY(-2px)}
+.proto-name{font-size:15px;font-weight:800;letter-spacing:.02em;margin-bottom:4px;display:flex;align-items:center;gap:7px}
+.proto-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.proto-dot.clay{background:var(--clay)}
+.proto-desc{font-size:12.5px;color:var(--ink-2);line-height:1.55}
+.proto-soon{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--ink-3);border:1px dashed var(--line-strong);border-radius:999px;padding:1px 8px;margin-left:auto}
+.artifact{display:grid;grid-template-columns:1.4fr 1fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-sm)}
+@media (max-width:760px){.artifact{grid-template-columns:1fr}}
+.artifact-body{padding:26px}
+.artifact-side{background:var(--surface-2);border-left:1px solid var(--line);padding:26px;display:flex;flex-direction:column;gap:10px;justify-content:center}
+@media (max-width:760px){.artifact-side{border-left:none;border-top:1px solid var(--line)}}
+.artifact-stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:999px;font-size:13.5px;font-weight:700;text-decoration:none;transition:all .2s;border:1.5px solid transparent;cursor:pointer}
+.cta-btn-primary{background:var(--accent);color:#fff}
+.cta-btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.cta-btn-secondary{background:transparent;color:var(--accent-ink);border-color:var(--accent-line)}
+.cta-btn-secondary:hover{background:var(--accent-soft)}
+.cta-btn.soon{background:transparent;color:var(--ink-3);border-color:var(--line-strong);cursor:default;pointer-events:none}
+.cta-btn.soon .soon-tag{font-size:10px;font-weight:700;letter-spacing:.08em;border:1px dashed var(--line-strong);border-radius:999px;padding:1px 8px}
+.site-footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 0 40px}
+.footer-brand{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.footer-motto{font-size:14px;color:var(--ink-2);font-weight:600}
+.footer-fossil{font-size:10.5px;letter-spacing:.18em;color:var(--ink-3)}
+.footer-links{display:flex;justify-content:center;gap:16px;margin-top:10px;font-size:12.5px}
+.footer-links a{color:var(--accent-ink);text-decoration:none;font-weight:600}
+.footer-links a:hover{text-decoration:underline}
+@media (max-width:600px){
+.header-content{padding:0 12px;gap:8px}
+.header-title{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.header-subtitle{display:none}
+.lang-btn{padding:4px 8px;font-size:11px}
+.lead{font-size:15px}
+}
+</style>
+</head>
+<body data-lang="ru">
+<header class="site-header">
+<div class="header-content">
+<button type="button" class="brand-mark" id="brandMark" aria-label="Rizoma Symbiotic Lab" title="Rizoma Symbiotic Lab">R</button>
+<div style="min-width:0">
+<div class="header-title">RIZOMA SYMBIOTIC LAB</div>
+<div class="header-subtitle"><svg class="sc-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="4.5" fill="#2E7D46"/><rect y="4.5" width="18" height="3" fill="#F7F5F0"/><rect y="7.5" width="18" height="4.5" fill="#2E7D46"/><path d="M9 1.8 15.2 6 9 10.2 2.8 6Z" fill="#C2333B"/></svg><span class="ru">Symbiotic Design · Florianópolis</span><span class="en">Symbiotic Design · Florianópolis</span><span class="pt">Symbiotic Design · Florianópolis</span></div>
+</div>
+<div class="header-spacer"></div>
+<div class="lang-switch" id="langSwitch" role="group" aria-label="Language">
+<button type="button" class="lang-btn active" id="langRu">RU</button>
+<button type="button" class="lang-btn" id="langEn">EN</button>
+<button type="button" class="lang-btn" id="langPt">PT</button>
+</div>
+<button type="button" class="theme-toggle" id="themeToggle" aria-label="Тема"><svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+</div>
+</header>
+<main class="wrap">
+<figure class="hero-figure">
+<svg class="hero-svg" id="heroSvg" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Схематичный двигатель симбиоза: три цилиндра с поршнями вращают маховик, поверх налетает надпись RIZOMA SYMBIOTIC LAB">
+<rect class="hbg" width="1600" height="420"/>
+<circle class="ripple r1" cx="1250" cy="118" r="72"/>
+<circle class="ripple r2" cx="1250" cy="118" r="72"/>
+<circle class="orbit-ring" cx="1250" cy="118" r="92"/>
+<circle class="orbit-ring" cx="1250" cy="118" r="120"/>
+<g class="orbit o1"><circle class="orb-mini" cx="1342" cy="118" r="7"/></g>
+<g class="orbit o2"><circle class="orb-mini b" cx="1130" cy="118" r="5"/></g>
+<circle class="hc1 orb" cx="1250" cy="118" r="72"/>
+<g class="piston p1">
+<path class="ha1 arch" d="M170 420v-165a145 145 0 0 1 290 0v165z"/>
+<line class="rod" x1="315" y1="124" x2="315" y2="404"/>
+</g>
+<g class="piston p2">
+<path class="ha2 arch" d="M520 420v-205a185 185 0 0 1 370 0v205z"/>
+<line class="rod" x1="705" y1="48" x2="705" y2="404"/>
+</g>
+<g class="piston p3">
+<path class="ha3 arch" d="M950 420v-120a112 112 0 0 1 224 0v120z"/>
+<line class="rod" x1="1062" y1="202" x2="1062" y2="404"/>
+</g>
+<g class="hoop h1"><ellipse class="hoop-ring" cx="315" cy="118" rx="34" ry="10"/><ellipse class="hoop-ring inner" cx="315" cy="118" rx="20" ry="6"/></g>
+<g class="hoop h2"><ellipse class="hoop-ring" cx="705" cy="52" rx="42" ry="12"/><ellipse class="hoop-ring inner" cx="705" cy="52" rx="26" ry="7"/></g>
+<g class="hoop h3"><ellipse class="hoop-ring" cx="1062" cy="196" rx="28" ry="8"/><ellipse class="hoop-ring inner" cx="1062" cy="196" rx="16" ry="5"/></g>
+<g class="flywheel">
+<circle class="fw-ring" cx="705" cy="340" r="40"/>
+<circle class="fw-pin" cx="745" cy="340" r="5"/>
+<circle class="fw-pin" cx="685" cy="374.6" r="5"/>
+<circle class="fw-pin" cx="685" cy="305.4" r="5"/>
+</g>
+<circle class="fw-hub" cx="705" cy="340" r="10"/>
+<circle class="hc3 orb d1" cx="452" cy="120" r="10"/>
+<circle class="hc3 orb d3" cx="925" cy="88" r="8"/>
+<circle class="hc3 orb d2" cx="1450" cy="230" r="12"/>
+<path class="hdash road" d="M110 382h1380" stroke-dasharray="2 16"/>
+<circle class="spark s1" cx="0" cy="0" r="4"/>
+<circle class="spark s2" cx="0" cy="0" r="3.5"/>
+<circle class="spark s3" cx="0" cy="0" r="3"/>
+</svg>
+<div class="hero-flash" aria-hidden="true"></div>
+<div class="hero-word" aria-hidden="true">
+<div class="line line1">
+<span class="lt" style="--d:.00s">R</span><span class="lt" style="--d:.11s">I</span><span class="lt" style="--d:.22s">Z</span><span class="lt" style="--d:.33s">O</span><span class="lt" style="--d:.44s">M</span><span class="lt" style="--d:.55s">A</span>
+</div>
+<div class="line line2">
+<span class="lt" style="--d:.48s">S</span><span class="lt" style="--d:.54s">Y</span><span class="lt" style="--d:.60s">M</span><span class="lt" style="--d:.66s">B</span><span class="lt" style="--d:.72s">I</span><span class="lt" style="--d:.78s">O</span><span class="lt" style="--d:.84s">T</span><span class="lt" style="--d:.90s">I</span><span class="lt" style="--d:.96s">C</span><span class="sp"></span><span class="lt" style="--d:1.08s">L</span><span class="lt" style="--d:1.14s">A</span><span class="lt" style="--d:1.20s">B</span>
+</div>
+</div>
+</figure>
+
+<section class="section" id="manifesto">
+<h2 class="section-title"><span class="section-number">01</span><span class="ru">Манифест — Symbiotic Design</span><span class="en">Manifesto — Symbiotic Design</span><span class="pt">Manifesto — Symbiotic Design</span></h2>
+<p class="lead"><span class="ru"><strong>Symbiotic Design</strong> — это проектирование систем, где человек и агент усиливают друг друга. Не автоматизация <em>вместо</em> человека и не человек <em>вместо</em> машины — а симбиоз, в котором каждая сторона делает то, что умеет лучше.</span><span class="en"><strong>Symbiotic Design</strong> is the design of systems where humans and agents amplify each other. Not automation <em>instead of</em> the human, nor the human <em>instead of</em> the machine — a symbiosis in which each side does what it does best.</span><span class="pt"><strong>Symbiotic Design</strong> é o projeto de sistemas em que pessoas e agentes se amplificam mutuamente. Não automação <em>no lugar</em> da pessoa, nem a pessoa <em>no lugar</em> da máquina — uma simbiose em que cada lado faz o que sabe fazer melhor.</span></p>
+<p class="lead"><span class="ru">Мир стремится извлечь субъектность: интерфейсы решают за нас, метрики оптимизируют внимание, агенты подменяют выбор. Мы проектируем в противоход — архитектуры, где решение остаётся за человеком, а машина забирает себе трение.</span><span class="en">The world keeps extracting subjectivity: interfaces decide for us, metrics optimize attention, agents replace choice. We design against the current — architectures where the decision stays with the human and the machine absorbs the friction.</span><span class="pt">O mundo não para de extrair subjetividade: interfaces decidem por nós, métricas otimizam a atenção, agentes substituem a escolha. Projetamos contra a corrente — arquiteturas em que a decisão permanece com a pessoa e a máquina absorve o atrito.</span></p>
+<p class="lead"><span class="ru">Rizoma Symbiotic Lab — онтологическая мастерская. Наши протоколы — это код, формализованные метрики и полевые тесты, а не манифесты ради манифестов.</span><span class="en">Rizoma Symbiotic Lab is an ontological workshop. Our protocols are code, formalized metrics, and field tests — not manifestos for the sake of manifestos.</span><span class="pt">Rizoma Symbiotic Lab é um laboratório ontológico. Nossos protocolos são código, métricas formalizadas e testes de campo — não manifestos por manifestos.</span></p>
+<div class="motto-row">
+<span class="meta-chip accent"><span class="ru">Симбиоз вместо замещения</span><span class="en">Symbiosis over replacement</span><span class="pt">Simbiose em vez de substituição</span></span>
+<span class="meta-chip"><span class="ru">Агент предлагает — человек решает</span><span class="en">The agent proposes — the human decides</span><span class="pt">O agente propõe — a pessoa decide</span></span>
+</div>
+</section>
+
+<section class="section" id="bet">
+<h2 class="section-title"><span class="section-number">02</span><span class="ru">Ставка и метрики</span><span class="en">The bet and the metrics</span><span class="pt">A aposta e as métricas</span></h2>
+<div class="duo">
+<div class="card">
+<div class="card-key"><span class="ru">НАША СТАВКА</span><span class="en">OUR BET</span><span class="pt">NOSSA APOSTA</span></div>
+<div class="card-title">AGT <span class="exp">· Agency-Guarded Technology</span></div>
+<p><span class="ru">Архитектура, удерживающая субъектность человека в контуре решений. Агент работает в полную силу — но финальное «да» всегда принадлежит человеку. Не ограничение возможностей, а гарантия авторства.</span><span class="en">An architecture that keeps human subjectivity inside the decision loop. The agent works at full power — but the final "yes" always belongs to the human. Not a cap on capability, a guarantee of authorship.</span><span class="pt">Uma arquitetura que mantém a subjetividade humana dentro do circuito de decisão. O agente trabalha em plena potência — mas o "sim" final sempre pertence à pessoa. Não um limite à capacidade, uma garantia de autoria.</span></p>
+</div>
+<div class="card">
+<div class="card-key"><span class="ru">НАШИ МЕТРИКИ</span><span class="en">OUR METRICS</span><span class="pt">NOSSAS MÉTRICAS</span></div>
+<div class="card-title">SPS</div>
+<p><span class="ru">Измеряем не только точность и скорость модели, но и то, сколько субъектности остаётся у человека после взаимодействия с системой. Метрика, которую нельзя обмануть ростом вовлечённости.</span><span class="en">We measure not only model accuracy and speed, but how much subjectivity remains with the human after interacting with the system. A metric that cannot be gamed by engagement growth.</span><span class="pt">Medimos não apenas a precisão e a velocidade do modelo, mas quanta subjetividade permanece com a pessoa após interagir com o sistema. Uma métrica que não pode ser burlada pelo crescimento do engajamento.</span></p>
+</div>
+</div>
+</section>
+
+<section class="section" id="protocols">
+<h2 class="section-title"><span class="section-number">03</span><span class="ru">Протоколы</span><span class="en">Protocols</span><span class="pt">Protocolos</span></h2>
+<div class="proto-grid">
+<div class="proto"><div class="proto-name"><span class="proto-dot"></span>AGT</div><div class="proto-desc"><span class="ru">Аксиоматика субъектности: агент усиливает выбор, не подменяет его.</span><span class="en">Axiomatics of subjectivity: the agent amplifies choice, never replaces it.</span><span class="pt">Axiomática da subjetividade: o agente amplifica a escolha, nunca a substitui.</span></div></div>
+<div class="proto"><div class="proto-name"><span class="proto-dot"></span>SPS</div><div class="proto-desc"><span class="ru">Метрики субъектности: сколько «я» остаётся у человека в системе.</span><span class="en">Subjectivity metrics: how much "self" the human keeps inside the system.</span><span class="pt">Métricas de subjetividade: quanto "eu" a pessoa mantém dentro do sistema.</span></div></div>
+<div class="proto"><div class="proto-name"><span class="proto-dot clay"></span>CAPA</div><div class="proto-desc"><span class="ru">Протектор боксёра против когнитивного захвата.</span><span class="en">The boxer's mouthguard against cognitive capture.</span><span class="pt">O protetor bucal do boxeador contra a captura cognitiva.</span></div></div>
+<div class="proto"><div class="proto-name"><span class="proto-dot clay"></span>PI</div><div class="proto-desc"><span class="ru">Информационная гигиена: что впускать, что фильтровать, что забыть.</span><span class="en">Informational hygiene: what to let in, what to filter, what to forget.</span><span class="pt">Higiene informacional: o que deixar entrar, o que filtrar, o que esquecer.</span></div></div>
+<div class="proto"><div class="proto-name"><span class="proto-dot clay"></span>Re-Lex<span class="proto-soon">soon</span></div><div class="proto-desc"><span class="ru">Протокол в разработке.</span><span class="en">Protocol in development.</span><span class="pt">Protocolo em desenvolvimento.</span></div></div>
+<div class="proto"><div class="proto-name"><span class="proto-dot clay"></span>Gladiator<span class="proto-soon">soon</span></div><div class="proto-desc"><span class="ru">Протокол в разработке.</span><span class="en">Protocol in development.</span><span class="pt">Protocolo em desenvolvimento.</span></div></div>
+<div class="proto"><div class="proto-name"><span class="proto-dot clay"></span>DIP<span class="proto-soon">soon</span></div><div class="proto-desc"><span class="ru">Протокол в разработке.</span><span class="en">Protocol in development.</span><span class="pt">Protocolo em desenvolvimento.</span></div></div>
+</div>
+</section>
+
+<section class="section" id="playbook">
+<h2 class="section-title"><span class="section-number">04</span><span class="ru">Флагманский артефакт</span><span class="en">Flagship artifact</span><span class="pt">Artefato principal</span></h2>
+<div class="artifact">
+<div class="artifact-body">
+<div class="card-key">SYMBIOTIC AGENTS PLAYBOOK · v15 · FLORIPA EDITION</div>
+<div class="card-title" style="font-size:22px"><span class="ru">Агентные системы: от первого скрипта до production</span><span class="en">Agent systems: from first script to production</span><span class="pt">Sistemas de agentes: do primeiro script à produção</span></div>
+<p><span class="ru">Рабочий гид лаборатории: Quick Start за 5 минут, production-tutorial ReAct-агента, 5 готовых рецептов, чек-лист безопасности, платформа и операции. Один HTML-файл, три языка, работает офлайн.</span><span class="en">The lab's working guide: a 5-minute Quick Start, a production ReAct-agent tutorial, 5 ready recipes, a security checklist, platform and operations. One HTML file, three languages, works offline.</span><span class="pt">O guia de trabalho do laboratório: Quick Start em 5 minutos, tutorial de produção de um agente ReAct, 5 receitas prontas, checklist de segurança, plataforma e operações. Um único arquivo HTML, três idiomas, funciona offline.</span></p>
+<div class="artifact-stats">
+<span class="meta-chip">RU · EN · PT</span>
+<span class="meta-chip"><span class="ru">1 файл · 0 зависимостей</span><span class="en">1 file · 0 dependencies</span><span class="pt">1 arquivo · 0 dependências</span></span>
+<span class="meta-chip accent">MIT + CC BY-SA</span>
+</div>
+</div>
+<div class="artifact-side">
+<div class="cta-row" style="flex-direction:column;align-items:stretch">
+<a class="cta-btn cta-btn-primary" href="playbook.html" style="justify-content:center"><span class="ru">Читать онлайн</span><span class="en">Read online</span><span class="pt">Ler online</span></a>
+<a class="cta-btn cta-btn-secondary" href="https://github.com/rizoma-symbiotic-lab/symbiotic-agents-playbook" target="_blank" rel="noopener" style="justify-content:center">GitHub ↗</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="contacts">
+<h2 class="section-title"><span class="section-number">05</span><span class="ru">Контакты</span><span class="en">Contacts</span><span class="pt">Contatos</span></h2>
+<p class="lead"><span class="ru">Вопросы, сотрудничество, полевые тесты протоколов — пишите в Telegram, на почту или начните с GitHub.</span><span class="en">Questions, collaboration, protocol field tests — write us on Telegram, by email, or start with GitHub.</span><span class="pt">Perguntas, colaboração, testes de campo dos protocolos — escreva no Telegram, por e-mail, ou comece pelo GitHub.</span></p>
+<div class="cta-row">
+<a class="cta-btn cta-btn-primary" href="https://github.com/rizoma-symbiotic-lab" target="_blank" rel="noopener">GitHub ↗</a>
+<a class="cta-btn cta-btn-secondary" href="https://t.me/Rizoma_symbiotic_lab" target="_blank" rel="noopener">Telegram ↗</a>
+<a class="cta-btn cta-btn-secondary" href="mailto:RizomaSL@proton.me"><span class="ru">Почта</span><span class="en">Email</span><span class="pt">E-mail</span> ↗</a>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-brand">
+<div class="footer-motto"><span class="ru">Симбиоз вместо замещения</span><span class="en">Symbiosis over replacement</span><span class="pt">Simbiose em vez de substituição</span></div>
+<div class="footer-links">
+<a href="https://github.com/rizoma-symbiotic-lab" target="_blank" rel="noopener">GitHub</a>
+<a href="playbook.html">Playbook</a>
+</div>
+<div class="footer-fossil">FOSSIL · RIZ-SA-2026-085 · FLORIPA</div>
+</div>
+</footer>
+<script>
+(() => {
+'use strict';
+const $ = s => document.querySelector(s);
+const root = document.documentElement;
+const body = document.body;
+/* Тема */
+function applyTheme(t){ root.setAttribute('data-theme', t); try{ localStorage.setItem('ag-theme', t); }catch(e){} }
+$('#themeToggle').addEventListener('click', () => {
+applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+});
+/* Язык */
+function applyLang(lang){
+if(!['ru','en','pt'].includes(lang)) return;
+body.setAttribute('data-lang', lang);
+root.setAttribute('lang', lang);
+try{ localStorage.setItem('ag-lang', lang); }catch(e){}
+[['langRu','ru'],['langEn','en'],['langPt','pt']].forEach(([id, l]) => {
+$('#' + id).classList.toggle('active', l === lang);
+});
+const titles = { ru: 'Rizoma Symbiotic Lab — Symbiotic Design', en: 'Rizoma Symbiotic Lab — Symbiotic Design', pt: 'Rizoma Symbiotic Lab — Symbiotic Design' };
+document.title = titles[lang];
+}
+[['langRu','ru'],['langEn','en'],['langPt','pt']].forEach(([id, l]) => {
+$('#' + id).addEventListener('click', () => applyLang(l));
+});
+try{
+const saved = localStorage.getItem('ag-lang');
+if(saved && saved !== 'ru') applyLang(saved);
+}catch(e){}
+/* Монограмма — наверх */
+$('#brandMark').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+</script>
+</body>
+</html>
